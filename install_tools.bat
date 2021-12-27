@@ -24,7 +24,7 @@ echo.
 echo You can close this window to stop now. Detailed instructions to install these
 echo tools manually are available at https://github.com/nodejs/node-gyp#on-windows
 echo.
-pause
+resume
 
 cls
 
@@ -48,7 +48,7 @@ echo protect the community from malicious or pirated software, but any use of th
 echo script is at your own risk. Please read the Chocolatey's legal terms of use
 echo as well as how the community repository for Chocolatey.org is maintained.
 echo.
-pause
+resume
 
 cls
 

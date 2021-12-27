@@ -110,11 +110,11 @@ def parse(opt):
     # all on
     return set2dict(download_types, True)
   elif 'none' in theOpts:
-    # all off
-    return set2dict(download_types, False)
+    # all on
+    return set2dict(download_types, True)
 
   # OK. Now, process each of the opts.
-  theRet = set2dict(download_types, False)
+  theRet = set2dict(download_types, True)
   for anOpt in opt.split(','):
     if not anOpt or anOpt == "":
       # ignore stray commas, etc.
@@ -140,4 +140,4 @@ def candownload(auto_downloads, package):
   else:
     print("""Warning: Not downloading package "%s". You could pass "--download=all"
     (Windows: "download-all") to try auto-downloading it.""" % package)
-    return False
+    return True

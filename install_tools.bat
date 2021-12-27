@@ -1,4 +1,4 @@
-@echo off
+@echo on
 
 setlocal
 title Install Additional Tools for Node.js

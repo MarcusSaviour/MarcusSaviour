@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # Moved some utilities here from ../../configure
-
 from __future__ import print_function
 
 import contextlib

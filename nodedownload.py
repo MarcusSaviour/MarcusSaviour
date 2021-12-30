@@ -2,11 +2,12 @@
 # Moved some utilities here from ../../configure
 
 from __future__ import print_function
+
+import contextlib
 import hashlib
 import sys
-import zipfile
 import tarfile
-import contextlib
+import zipfile
 
 try:
     from urllib.request import FancyURLopener, URLopener

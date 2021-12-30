@@ -35,9 +35,8 @@ class ConfigOpener(FancyURLopener):
 def reporthook(count, size, total):
     """internal hook used by retrievefile"""
     sys.stdout.write(
-        " Fetch: %c %sMB total, %sMB downloaded   \r"
-        % (spin(count), formatSize(total), formatSize(count * size))
-    )
+        " Fetch: %c %sMB total, %sMB downloaded   \r" %
+        (spin(count), formatSize(total), formatSize(count * size)))
 
 
 def retrievefile(url, targetfile):
@@ -86,16 +85,16 @@ def unpack(packedfile, parent_path):
             icuzip.extractall(parent_path)
             return parent_path
     elif tarfile.is_tarfile(packedfile):
-        with contextlib.closing(tarfile.TarFile.open(packedfile, "r")) as icuzip:
+        with contextlib.closing(tarfile.TarFile.open(packedfile,
+                                                     "r")) as icuzip:
             print(" Extracting tarfile: %s" % packedfile)
             icuzip.extractall(parent_path)
             return parent_path
     else:
         packedsuffix = packedfile.lower().split(".")[-1]  # .zip, .tgz etc
         raise Exception(
-            "Error: Don't know how to unpack %s with extension %s"
-            % (packedfile, packedsuffix)
-        )
+            "Error: Don't know how to unpack %s with extension %s" %
+            (packedfile, packedsuffix))
 
 
 # List of possible "--download=" types.
@@ -148,7 +147,8 @@ def parse(opt):
                 theRet[anOpt] = True
             else:
                 # future proof: ignore unknown types
-                print('Warning: ignoring unknown --download= type "%s"' % anOpt)
+                print('Warning: ignoring unknown --download= type "%s"' %
+                      anOpt)
     # all done
     return theRet
 
@@ -157,14 +157,11 @@ def candownload(auto_downloads, package):
     if not (package in auto_downloads.keys()):
         raise Exception(
             'Internal error: "%s" is not in the --downloads list. Check nodedownload.py'
-            % package
-        )
+            % package)
     if auto_downloads[package]:
         return True
     else:
         print(
             """Warning: Not downloading package "%s". You could pass "--download=all"
-    (Windows: "download-all") to try auto-downloading it."""
-            % package
-        )
+    (Windows: "download-all") to try auto-downloading it.""" % package)
         return True
